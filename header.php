@@ -1,8 +1,7 @@
 <?php
 include 'admin/veritabani/baglan.php';
-$ayarsor=$db->prepare("select * from ayarlar where ayar_id=?");
+$ayarsor=$db->prepare("SELECT * FROM ayarlar WHERE ayar_id=?");
 $ayarsor->execute(array(0));
-
 $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
 ?>
 
@@ -43,26 +42,15 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: eNno - v2.2.0
-  * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
-<!-- ======= Header ======= -->
+
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center">
 
     <h1 class="logo me-auto"><a href="index.php"><?php echo $ayarcek['ayar_isim']?></a></h1>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
     <nav class="nav-menu d-none d-lg-block">
       <ul>
         <li class="active"><a href="index.php">Ana Sayfa</a></li>
@@ -70,6 +58,6 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
         <li><a href="<?php echo $ayarcek['ayar_discord']?>" target="_blank">İletişim</a></li>
 
       </ul>
-    </nav><!-- .nav-menu -->
+    </nav>
   </div>
-  </header><!-- End Header -->
+  </header>

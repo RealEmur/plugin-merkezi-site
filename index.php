@@ -63,7 +63,13 @@
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">12</span>
+            <span data-toggle="counter-up">
+            <?php 
+              $eklentisayi = $db->prepare("SELECT * FROM eklentiler WHERE eklenti_durum = 1 ORDER BY eklenti_sira DESC LIMIT 999");
+              $eklentisayi->execute(array());
+              $kontrol = $eklentisayi->rowCount();
+              echo($kontrol);?>
+            </span>
             <p>Eklenti</p>
           </div>
 
