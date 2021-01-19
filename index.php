@@ -8,7 +8,7 @@
           <h1>CS:GO SUNUCUN</h1>
           <h2>En iyisi mi olsun istiyorsun? En iyisini <br>kullanmalısın.</h2>
           <div class="d-flex">
-            <a href="eklentiler.php" class="btn-get-started scrollto"> Ücretli Eklentiler</a>
+            <a href="eklentiler" class="btn-get-started scrollto"> Ücretli Eklentiler</a>
             <a href="https://forum.pluginmerkezi.com" class="btn-get-started scrollto"
             style="margin-left: 15px; background-color: #36437566;">Forum</a>
           </div>
@@ -119,7 +119,7 @@
                   </div>
 
                   <div align="center">
-                    <a href="eklenti.php?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%; margin-bottom: 0%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
+                    <a href="eklenti?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%; margin-bottom: 0%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
                   </div>
 
                 </div>
@@ -143,7 +143,7 @@
                     </div>
 
                     <div align="center">
-                      <a href="eklenti.php?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%; margin-bottom: 0%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
+                      <a href="eklenti?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%; margin-bottom: 0%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
                     </div>
 
                   </div>
@@ -151,7 +151,7 @@
               <?php }} ?>
 
               <div align="center" style="margin-top: 5%;">
-                <a href="eklentiler.php"><button type="submit" class="col-md-3 btn btn-success"><b>Tümünü Gör</b></button></a>
+                <a href="eklentiler"><button type="submit" class="col-md-3 btn btn-success"><b>Tümünü Gör</b></button></a>
               </div>
 
             </div>

@@ -35,7 +35,7 @@ $gelenid = $_GET['eklentiid'];
             </div>
           <?php } 
           else
-            Header("Location:eklentiler.php");?>
+            Header("Location:eklentiler");?>
         </section>
 
       </main><!-- End #main -->

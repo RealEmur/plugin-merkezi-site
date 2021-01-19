@@ -42,7 +42,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_yorum");
                 <div class="clearfix"></div>
               </div>
           <div align="right" class="col md-12">
-            <a href="yorum-ekle.php"><button style="margin-right: 2%;" class="btn btn-primary btn-xs"><i class="success fa fa-plus"> Yeni yorum ekle</i></button></a>
+            <a href="yorum-ekle"><button style="margin-right: 2%;" class="btn btn-primary btn-xs"><i class="success fa fa-plus"> Yeni yorum ekle</i></button></a>
           </div>
           <div class="x_content">
             <div class="table-responsive">

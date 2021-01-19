@@ -44,7 +44,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_eklenti");
                 <div class="clearfix"></div>
               </div>
               <div align="right" class="col md-12">
-                <a href="eklenti-ekle.php"><button style="margin-right: 2%;" class="btn btn-primary btn-xs"><i class="success fa fa-plus"> Yeni eklenti ekle</i></button></a>
+                <a href="eklenti-ekle"><button style="margin-right: 2%;" class="btn btn-primary btn-xs"><i class="success fa fa-plus"> Yeni eklenti ekle</i></button></a>
               </div>
               <div class="x_content">
                 <div class="table-responsive">
@@ -77,7 +77,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_eklenti");
                           <td style="text-align: center;" class=""><?php echo $eklenticek['eklenti_tarih']?></td>
                           <td style="text-align: center;" class=""><?php if($eklenticek['eklenti_durum'] == '1')  echo "Aktif"; else echo "Pasif";?></td>
                           <td style="text-align: center; "class="a-right a-right "><?php echo $eklenticek['eklenti_sira']?></td>
-                          <td class=" "><a href="eklenti-duzenle.php?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="width: 70px; "class="btn btn-primary btn-xs"><i class="success fa fa-edit"> Düzenle</i></button></td></a>
+                          <td class=" "><a href="eklenti-duzenle?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="width: 70px; "class="btn btn-primary btn-xs"><i class="success fa fa-edit"> Düzenle</i></button></td></a>
 
                           <form action="../veritabani/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                             <input type="hidden" name="eklentiid" value="<?php echo $eklenticek['eklenti_id']?>">

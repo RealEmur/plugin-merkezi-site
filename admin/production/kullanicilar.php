@@ -7,7 +7,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_kullanici");
   <div class="">
     <div class="page-title">
       <div class="title_left">
-        <a href="kullanici-ekle.php"><button class="btn btn-success btn-xs"><i class="success fa fa-plus"> Yeni Yetkili Ekle</i></button></a>
+        <a href="kullanici-ekle"><button class="btn btn-success btn-xs"><i class="success fa fa-plus"> Yeni Yetkili Ekle</i></button></a>
       </div>
     </div>
 
@@ -28,7 +28,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_kullanici");
             }
             ?>"src="<?php echo $admincek['admin_resim']; ?>">
             <h3 style="color:black;"><?php echo $admincek['admin_kullanici'];?></h3>
-            <form action="../veritabani/islem.php" method="POST" style="margin-top: 5%;">              
+            <form action="../veritabani/islem" method="POST" style="margin-top: 5%;">              
               <label style="margin-left: 5%; margin-bottom: 5%;">
                 <input type="checkbox" name="yetki_eklenti" value="1" class="js-switch" 
                 <?php 

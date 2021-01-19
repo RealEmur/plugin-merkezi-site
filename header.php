@@ -50,10 +50,10 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
 <header id="header" class="fixed-top">
   <div class="container d-flex align-items-center">
 
-    <h1 class="logo me-auto"><a href="index.php"><?php echo $ayarcek['ayar_isim']?></a></h1>
+    <h1 class="logo me-auto"><a href="index"><?php echo $ayarcek['ayar_isim']?></a></h1>
     <nav class="nav-menu d-none d-lg-block">
       <ul>
-        <li class="active"><a href="index.php">Ana Sayfa</a></li>
+        <li class="active"><a href="index">Ana Sayfa</a></li>
         <li><a href="eklentiler">Eklentiler</a></li>
         <li><a href="<?php echo $ayarcek['ayar_discord']?>" target="_blank">İletişim</a></li>
 
