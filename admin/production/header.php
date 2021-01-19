@@ -6,7 +6,7 @@ include 'fonksiyonlar.php';
 
 if(!isset($_SESSION['pmadmin_kullaniciadi']))
 {
-  header('Location:../login.php');
+  header('Location:../login');
 }
 ?>
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ if(!isset($_SESSION['pmadmin_kullaniciadi']))
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><img src="img/pmlogo.png" style="width: 100%;"></a>
+              <a href="index" class="site_title"><img src="img/pmlogo.png" style="width: 100%;"></a>
             </div>
 
             <div class="clearfix"></div>

@@ -25,9 +25,9 @@ if(isset($_POST['genelayarkaydet']))
 		'isim' => $_POST['ayar_isim']
 	));
 	if($guncelle)
-		Header("Location:../production/genel-ayarlar.php?durum=basarili");
+		Header("Location:../production/genel-ayarlar?durum=basarili");
 	else
-		Header("Location:../production/genel-ayarlar.php?durum=basarisiz");
+		Header("Location:../production/genel-ayarlar?durum=basarisiz");
 }
 else if(isset($_POST['footerayarkaydet']))
 {
@@ -42,13 +42,14 @@ else if(isset($_POST['footerayarkaydet']))
 		'baslik' => $_POST['footer_baslik']
 	));
 	if($guncelle)
-		Header("Location:../production/footer-ayarlar.php?durum=basarili");
+		Header("Location:../production/footer-ayarlar?durum=basarili");
 	else
-		Header("Location:../production/footer-ayarlar.php?durum=basarisiz");
+		Header("Location:../production/footer-ayarlar?durum=basarisiz");
 }
 else if(isset($_POST['yeniyorumekle']))
 {
 	$kaydet=$db->prepare("INSERT INTO yorumlar SET
+		yorum_steamdec=:steam,
 		yorum_yazici=:yazici,
 		yorum_resim=:resim,
 		yorum_rol=:rol,
@@ -57,6 +58,7 @@ else if(isset($_POST['yeniyorumekle']))
 		yorum_durum=:durum
 		");
 	$insert=$kaydet->execute(array(
+		'steam' => $_POST['yorum_steamdec'],
 		'yazici' => $_POST['yorum_yazici'],
 		'resim' => $_POST['yorum_resim'],
 		'rol' => $_POST['yorum_rol'],
@@ -89,18 +91,18 @@ else if(isset($_POST['yorumduzenle']))
 		'durum' => $_POST['yorum_durum']
 	));
 	if($insert)
-		Header("Location:../production/yorumlar.php?durum=basarili");
+		Header("Location:../production/yorumlar?durum=basarili");
 	else
-		Header("Location:../production/yorumlar.php?durum=basarisiz");
+		Header("Location:../production/yorumlar?durum=basarisiz");
 }
 else if(isset($_POST['yorumsil']))
 {
 	$kaydet=$db->prepare("DELETE FROM yorumlar WHERE yorum_id = '".$_POST['yorumid']."'");
 	$insert=$kaydet->execute(array());
 	if($insert)
-		Header("Location:../production/yorumlar.php?durum=basarili");
+		Header("Location:../production/yorumlar?durum=basarili");
 	else
-		Header("Location:../production/yorumlar.php?durum=basarisiz");
+		Header("Location:../production/yorumlar?durum=basarisiz");
 }
 else if(isset($_POST['yenieklentiekle']))
 {

@@ -27,10 +27,18 @@ $yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC);
             <form action="../veritabani/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
               <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Yorum SteamDec
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input name="yorum_steamdec" type="text" value="<?php echo $yorumcek['yorum_steamdec'];?>" id="first-name" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Yorum Sahibi
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input name="yorum_yazici" type="text" value="<?php echo $yorumcek['yorum_yazici'];?>" id="first-name" class="required form-control col-md-7 col-xs-12">
+                  <input name="yorum_yazici" type="text" value="<?php echo $yorumcek['yorum_yazici'];?>" id="first-name" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
@@ -38,7 +46,7 @@ $yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC);
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Resim Linki
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input name="yorum_resim" type="text" value="<?php echo $yorumcek['yorum_resim'];?>" id="first-name" class="required form-control col-md-7 col-xs-12">
+                  <input name="yorum_resim" type="text" value="<?php echo $yorumcek['yorum_resim'];?>" id="first-name" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 

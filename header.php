@@ -54,7 +54,7 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
     <nav class="nav-menu d-none d-lg-block">
       <ul>
         <li class="active"><a href="index.php">Ana Sayfa</a></li>
-        <li><a href="eklentiler.php">Eklentiler</a></li>
+        <li><a href="eklentiler">Eklentiler</a></li>
         <li><a href="<?php echo $ayarcek['ayar_discord']?>" target="_blank">İletişim</a></li>
 
       </ul>

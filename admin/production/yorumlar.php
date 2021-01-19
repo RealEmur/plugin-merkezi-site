@@ -67,9 +67,52 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_yorum");
                   while($yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC))
                     {?>
                      <tr class="even pointer">
-                      <td><img style="width: 150px;" src="<?php echo $yorumcek['yorum_resim'];?>"></td>
+                      <td><img style="width: 150px;" src="
+                      <?php 
+                      if(empty($yorumcek['yorum_resim']))
+                      {
+                        if(is_numeric($yorumcek['yorum_steamdec']))
+                          $link = sprintf("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=CB8E7C461AFBD3946BFEA9FC8D228D82&steamids=%s", $yorumcek['yorum_steamdec']);
+                        else
+                        {
+                          $link = sprintf("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=CB8E7C461AFBD3946BFEA9FC8D228D82&vanityurl=%s", $yorumcek['yorum_steamdec']);
+                          $link = file_get_contents($link);
+                          $link = json_decode($link, true);
+                          $link = sprintf("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=CB8E7C461AFBD3946BFEA9FC8D228D82&steamids=%s", $link['response']['steamid']);
+                        }
+                        $steam = file_get_contents($link);
+                        $steamJson = json_decode($steam, true);
+                        foreach ($steamJson['response']['players'] as $deger) {
+                          echo $deger['avatarfull'];
+                        }
+                      }
+                      else
+                        echo $yorumcek['yorum_resim'];
+                      ?>"></td>
                       <td style="text-align: center; width: 300px;"><?php echo $yorumcek['yorum_aciklama'];?></td>
-                      <td style="text-align: center;" class=""><?php echo $yorumcek['yorum_yazici'];?></td>
+                      <td style="text-align: center;" class="">
+                      <?php 
+                      if(empty($yorumcek['yorum_yazici']))
+                      {
+                        if(is_numeric($yorumcek['yorum_steamdec']))
+                          $link = sprintf("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=CB8E7C461AFBD3946BFEA9FC8D228D82&steamids=%s", $yorumcek['yorum_steamdec']);
+                        else
+                        {
+                          $link = sprintf("http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=CB8E7C461AFBD3946BFEA9FC8D228D82&vanityurl=%s", $yorumcek['yorum_steamdec']);
+                          $link = file_get_contents($link);
+                          $link = json_decode($link, true);
+                          $link = sprintf("http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=CB8E7C461AFBD3946BFEA9FC8D228D82&steamids=%s", $link['response']['steamid']);
+                        }
+                        $steam = file_get_contents($link);
+                        $steamJson = json_decode($steam, true);
+                        foreach ($steamJson['response']['players'] as $deger) {
+                          echo $deger['personaname'];
+                        }
+                      }
+                      else
+                        echo $yorumcek['yorum_yazici'];
+                      ?>
+                      </td>
                       <td style="text-align: center;" class=""><?php echo $yorumcek['yorum_rol'];?></td>
                       <td style="text-align: center;" class=""><?php if($yorumcek['yorum_durum'] == 1) echo "Aktif"; else echo "Pasif"?></td>
                       <td style="text-align: center;" class="a-right a-right "><?php echo $yorumcek['yorum_sira']?></td>

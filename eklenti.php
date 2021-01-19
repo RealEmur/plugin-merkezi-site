@@ -25,12 +25,12 @@ $gelenid = $_GET['eklentiid'];
           if($indirimcek=$indirimsor->fetch(PDO::FETCH_ASSOC))
           {
             $yenifiyat = ($eklenticek['eklenti_fiyat'] / 100) * (100 - $indirimcek['indirim_miktar']);?>
-             <a href="http://localhost/admin/sartlar.php"><button style="margin-top: 3%;"type="submit" class="btn btn-success">İndirimli: <?php echo $yenifiyat ?>TL <del><?php echo $eklenticek['eklenti_fiyat']."TL"?></del></button></a><?php 
+             <a href="http://localhost/admin/sartlar"><button style="margin-top: 3%;"type="submit" class="btn btn-success">İndirimli: <?php echo $yenifiyat ?>TL <del><?php echo $eklenticek['eklenti_fiyat']."TL"?></del></button></a><?php 
           }
           else
           {
               ?>
-              <a href="http://localhost/admin/sartlar.php"><button style="margin-top: 3%;"type="submit" class="btn btn-success">Satın Al: <?php echo $eklenticek['eklenti_fiyat']?>TL</button></a><?php 
+              <a href="http://localhost/admin/sartlar"><button style="margin-top: 3%;"type="submit" class="btn btn-success">Satın Al: <?php echo $eklenticek['eklenti_fiyat']?>TL</button></a><?php 
           }?>
             </div>
           <?php } 

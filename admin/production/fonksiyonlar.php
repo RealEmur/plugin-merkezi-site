@@ -1,5 +1,4 @@
 <?php
-
 function yetkikontrol($kullaniciadi, $yetki)
 {
 	include "../veritabani/baglan.php";

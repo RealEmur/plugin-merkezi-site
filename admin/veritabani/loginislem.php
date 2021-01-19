@@ -20,11 +20,11 @@ if(isset($_POST['login']))
 			$sorgula->execute(array(0));
 			$resmicek=$sorgula->fetch(PDO::FETCH_ASSOC);
 			$_SESSION['pmadmin_foto'] = $resmicek['admin_resim'];
-			Header('Location:../production/index.php');
+			Header('Location:../production/index');
 		}
 		else
 		{
-			Header('Location:../login.php?basarisiz=1');
+			Header('Location:../login?basarisiz=1');
 		}
 	}
 

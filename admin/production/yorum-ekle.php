@@ -20,11 +20,19 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_yorum");
             <br />
             <form action="../veritabani/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
+             <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">SteamDec
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input name="yorum_steamdec" type="text" placeholder="Yorum sahibinin steamdec adresi" id="first-name" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+              
               <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Yorum Sahibi
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input name="yorum_yazici" type="text" placeholder="Yorum sahibinin nickini yazınız" id="first-name" class="required form-control col-md-7 col-xs-12">
+                  <input name="yorum_yazici" type="text" placeholder="Yorum sahibinin nickini yazınız steamdec dolu ise boş bırakabilirsiniz" id="first-name" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 
@@ -32,7 +40,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_yorum");
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Resim Linki
                 </label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                  <input name="yorum_resim" type="text" placeholder="Kullanılmasını istediğiniz linki yazınız" id="first-name" class="required form-control col-md-7 col-xs-12">
+                  <input name="yorum_resim" type="text" placeholder="Kullanılmasını istediğiniz linki yazınız steamdec dolu ise boş bırakabilirsiniz" id="first-name" class="form-control col-md-7 col-xs-12">
                 </div>
               </div>
 

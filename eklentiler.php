@@ -35,7 +35,7 @@
                 </div>
 
                 <div align="center">
-                  <a href="eklenti.php?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
+                  <a href="eklenti?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@
                   </div>
 
                   <div align="center">
-                    <a href="eklenti.php?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%; margin-bottom: 0%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
+                    <a href="eklenti?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="margin-top: 10%; margin-bottom: 0%;" type="submit" class="col-md-6 btn btn-primary"><b>Devamını Gör</b></button></a>
                   </div>
 
                 </div>
