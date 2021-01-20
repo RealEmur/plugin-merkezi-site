@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include 'baglan.php';
+include '../production/fonksiyonlar.php';
 
 if(isset($_POST['genelayarkaydet']))
 {
@@ -159,6 +160,17 @@ else if(isset($_POST['eklentisil']))
 		Header("Location:../production/eklentiler.php?durum=basarili");
 	else
 		Header("Location:../production/eklentiler.php?durum=basarisiz");
+}
+else if(isset($_POST['eklentigonder']))
+{
+	if(isset($_POST['eklentiid']))
+	{
+		sendToDiscord($_POST['eklentiid']);
+		Header("Location:../production/eklentiler.php?durum=basarili");
+	}
+	else{
+		Header("Location:../production/eklentiler.php?durum=basarisiz");
+	}
 }
 else if(isset($_POST['yenikullaniciekle']))
 {

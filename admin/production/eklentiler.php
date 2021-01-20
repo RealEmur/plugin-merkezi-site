@@ -60,6 +60,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_eklenti");
                         <th style="text-align: center;" class="column-title">Üstünlük</th>
                         <th style="text-align: center;" class="column-title"></th>
                         <th style="text-align: center;" class="column-title"></th>
+                        <th style="text-align: center;" class="column-title"></th>
                       </tr>
                     </thead>
 
@@ -78,10 +79,11 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_eklenti");
                           <td style="text-align: center;" class=""><?php if($eklenticek['eklenti_durum'] == '1')  echo "Aktif"; else echo "Pasif";?></td>
                           <td style="text-align: center; "class="a-right a-right "><?php echo $eklenticek['eklenti_sira']?></td>
                           <td class=" "><a href="eklenti-duzenle?eklentiid=<?php echo $eklenticek['eklenti_id'];?>"><button style="width: 70px; "class="btn btn-primary btn-xs"><i class="success fa fa-edit"> Düzenle</i></button></td></a>
-
+                          
                           <form action="../veritabani/islem.php" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                             <input type="hidden" name="eklentiid" value="<?php echo $eklenticek['eklenti_id']?>">
                             <td class=" "><button name="eklentisil" style="width: 70px; "class="btn btn-danger btn-xs"><i class="success fa fa-trash"> Sil</i></button></td>
+                            <td class=" "><button name="eklentigonder" style="width: 70px; "class="btn btn-success btn-xs"><i class="fa fa-share"> Gönder</i></button></td>
                           </form>
                         </tr>
                       <?php } ?>
