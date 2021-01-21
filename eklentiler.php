@@ -15,7 +15,7 @@
 
       <div class="row">
         <?php 
-        $eklentisor=$db->prepare("SELECT * FROM eklentiler WHERE eklenti_durum = 1 ORDER BY eklenti_sira DESC");
+        $eklentisor=$db->prepare("SELECT * FROM eklentiler WHERE eklenti_durum = 1 ORDER BY eklenti_sira DESC, eklenti_tarih DESC");
         $eklentisor->execute();
         if($eklenticek=$eklentisor->fetch(PDO::FETCH_ASSOC))
           {?>
