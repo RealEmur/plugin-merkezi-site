@@ -44,6 +44,15 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_kullanici");
                   <input name="admin_resim" type="text" placeholder="Profil fotoğrafının linkini giriniz" id="first-name" class="required form-control col-md-7 col-xs-12">
                 </div>
               </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Admin Dokunulmazlık
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input name="admin_doku" type="text" placeholder="Admin Dokunulmazlık Seviyesini Giriniz" id="first-name" class="required form-control col-md-7 col-xs-12">
+                  <input type="hidden" name="yetki_kullanan" value="<?php echo $_SESSION['pmadmin_kullaniciadi'];?>">
+                </div>
+              </div>
               <div style="margin-left: 22%;margin-top: 3%;">
 
                 <!---- Checkboxda seçilmezse veri geçiremiyorsun o yüzden seçilmediği takdirde 0 geçiriyorum -->

@@ -175,15 +175,25 @@ else if(isset($_POST['eklentigonder']))
 }
 else if(isset($_POST['yenikullaniciekle']))
 {
+	$sorgu = $db->prepare("SELECT * FROM adminler WHERE admin_kullanici = '".$_POST['yetki_kullanan']."'");
+	$sorgu->execute();
+	if($kullanici = $sorgu->fetch(PDO::FETCH_ASSOC))
+	{
+		$dokunulmazlik = intval($_POST['admin_doku']);
+		if($dokunulmazlik > intval($kullanici['admin_doku']))
+			$dokunulmazlik = intval($kullanici['admin_doku']);
+	}
 	$kaydet=$db->prepare("INSERT INTO adminler SET
 		admin_kullanici=:kullanici,
 		admin_sifre=:sifre,
-		admin_resim=:resim
+		admin_resim=:resim,
+		admin_doku=:doku
 		");
 	$insert=$kaydet->execute(array(
 		'kullanici' => $_POST['admin_kullanici'],
 		'sifre' => $_POST['admin_sifre'],
-		'resim' => $_POST['admin_resim']
+		'resim' => $_POST['admin_resim'],
+		'doku' => strval($dokunulmazlik)
 	));
 	$kaydet2=$db->prepare("INSERT INTO adminyetkiler SET
 		yetki_kullanici=:kullanici,
@@ -205,31 +215,62 @@ else if(isset($_POST['yenikullaniciekle']))
 }
 else if(isset($_POST['yetkiliguncelle']))
 {
-	$guncelle=$db->prepare("UPDATE adminyetkiler SET
-		yetki_eklenti=:eklenti,
-		yetki_yorum=:yorum,
-		yetki_footer=:footer,
-		yetki_genel=:genel,
-		yetki_kullanici=:kullanici
-		WHERE yetki_admin = '".$_POST['yetki_admin']."'");
-	$guncelle->execute(array(
-		'eklenti' => $_POST['yetki_eklenti'],
-		'yorum' => $_POST['yetki_yorum'],
-		'footer' => $_POST['yetki_footer'],
-		'genel' => $_POST['yetki_genel'],
-		'kullanici' => $_POST['yetki_kullanici']
-	));
-	Header("Location:../production/kullanicilar.php");
+	$sorgu = $db->prepare("SELECT admin_doku FROM adminler WHERE admin_kullanici = '".$_POST['yetki_kullanan']."'");
+	$sorgu->execute();
+	if($kullanici = $sorgu->fetch(PDO::FETCH_ASSOC))
+	{
+		$sorgu = $db->prepare("SELECT admin_doku FROM adminler WHERE admin_kullanici = '".$_POST['yetki_admin']."'");
+		$sorgu->execute();
+		if($kullanilan = $sorgu->fetch(PDO::FETCH_ASSOC))
+		{
+			if($kullanilan['admin_doku'] <= $kullanici['admin_doku'])
+			{
+				$guncelle=$db->prepare("UPDATE adminyetkiler SET
+					yetki_eklenti=:eklenti,
+					yetki_yorum=:yorum,
+					yetki_footer=:footer,
+					yetki_genel=:genel,
+					yetki_kullanici=:kullanici
+					WHERE yetki_admin = '".$_POST['yetki_admin']."'");
+				$guncelle->execute(array(
+					'eklenti' => $_POST['yetki_eklenti'],
+					'yorum' => $_POST['yetki_yorum'],
+					'footer' => $_POST['yetki_footer'],
+					'genel' => $_POST['yetki_genel'],
+					'kullanici' => $_POST['yetki_kullanici']
+				));
+				Header("Location:../production/kullanicilar.php?durum=basarili");
+			}
+			else{
+				Header("Location:../production/kullanicilar.php?durum=basarisiz");
+			}
+		}
+	}
 }
 else if(isset($_POST['yetkilisil']))
 {
-	$kaydet=$db->prepare("DELETE FROM adminler WHERE admin_kullanici = '".$_POST['yetki_admin']."'");
-	$kaydet->execute(array());
-
-	$kaydet=$db->prepare("DELETE FROM adminyetkiler WHERE yetki_admin = '".$_POST['yetki_admin']."'");
-	$kaydet->execute(array());
-
-	Header("Location:../production/kullanicilar.php");
+	$sorgu = $db->prepare("SELECT admin_doku FROM adminler WHERE admin_kullanici = '".$_POST['yetki_kullanan']."'");
+	$sorgu->execute();
+	if($kullanici = $sorgu->fetch(PDO::FETCH_ASSOC))
+	{
+		$sorgu = $db->prepare("SELECT admin_doku FROM adminler WHERE admin_kullanici = '".$_POST['yetki_admin']."'");
+		$sorgu->execute();
+		if($kullanilan = $sorgu->fetch(PDO::FETCH_ASSOC))
+		{
+			if($kullanilan['admin_doku'] <= $kullanici['admin_doku'])
+			{
+				$kaydet=$db->prepare("DELETE FROM adminler WHERE admin_kullanici = '".$_POST['yetki_admin']."'");
+				$kaydet->execute(array());
+				
+				$kaydet=$db->prepare("DELETE FROM adminyetkiler WHERE yetki_admin = '".$_POST['yetki_admin']."'");
+				$kaydet->execute(array());
+				Header("Location:../production/kullanicilar.php?durum=basarili");
+			}
+			else{
+				Header("Location:../production/kullanicilar.php?durum=basarisiz");
+			}
+		}
+	}
 }
 else if(isset($_POST['adminbilgileriguncelle']))
 {
@@ -253,5 +294,5 @@ else if(isset($_POST['adminbilgileriguncelle']))
 	$_SESSION['pmadmin_foto']  = $_POST['admin_resim'];
 	Header("Location:../production/profil.php");
 }
-ob_end();
+//ob_end();
 ?>

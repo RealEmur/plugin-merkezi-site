@@ -8,6 +8,16 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_kullanici");
     <div class="page-title">
       <div class="title_left">
         <a href="kullanici-ekle"><button class="btn btn-success btn-xs"><i class="success fa fa-plus"> Yeni Yetkili Ekle</i></button></a>
+        <small>
+        <?php if(isset($_GET['durum']))
+        { 
+          if($_GET['durum'] == 'basarili') 
+            {?>
+              <b style="color: green;">İşlem başarılı</b>
+            <?php } else {?>
+              <b style="color: red;">İşlem başarısız (Dokunulmazlık yetersiz)</b>
+            <?php }
+          }?></small>
       </div>
     </div>
 
@@ -62,6 +72,7 @@ yetkikontrol($_SESSION['pmadmin_kullaniciadi'], "yetki_kullanici");
               </label>
               <div class="ln_solid"></div>
               <input type="hidden" name="yetki_admin" value="<?php echo $admincek['admin_kullanici'];?>">
+              <input type="hidden" name="yetki_kullanan" value="<?php echo $_SESSION['pmadmin_kullaniciadi'];?>">
               <button type="submit" name="yetkiliguncelle" class="btn btn-primary">Güncelle</button>
               <button type="submit" name="yetkilisil" class="btn btn-danger">Sil</button>
             </form>
