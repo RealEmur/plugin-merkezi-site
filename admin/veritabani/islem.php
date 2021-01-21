@@ -1,4 +1,5 @@
 <?php
+session_start();
 ob_start();
 include 'baglan.php';
 include '../production/fonksiyonlar.php';
@@ -230,4 +231,27 @@ else if(isset($_POST['yetkilisil']))
 
 	Header("Location:../production/kullanicilar.php");
 }
+else if(isset($_POST['adminbilgileriguncelle']))
+{
+	$guncelle=$db->prepare("UPDATE adminler SET
+		admin_kullanici=:kullanici,
+		admin_sifre=:sifre,
+		admin_resim=:resim
+		WHERE admin_id = '".$_POST['admin_id']."'");
+	$guncelle->execute(array(
+		'kullanici' => $_POST['admin_kullanici'],
+		'sifre' => $_POST['admin_sifre'],
+		'resim' => $_POST['admin_resim']
+	));
+	$kaydet=$db->prepare("UPDATE adminyetkiler SET
+		yetki_admin=:kullanici
+		WHERE yetki_admin = '".$_SESSION['pmadmin_kullaniciadi']."'");
+	$kaydet->execute(array(
+		'kullanici' => $_POST['admin_kullanici']
+	));
+	$_SESSION['pmadmin_kullaniciadi'] = $_POST['admin_kullanici'];
+	$_SESSION['pmadmin_foto']  = $_POST['admin_resim'];
+	Header("Location:../production/profil.php");
+}
+ob_end();
 ?>
