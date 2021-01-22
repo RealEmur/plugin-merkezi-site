@@ -74,7 +74,7 @@
                   </div>
 
                   <div class="col-lg-3 col-6 text-center">
-                      <span data-toggle="counter-up">7/24</span>
+                      <span>7/24</span>
                       <p>Hazır Destek</p>
                   </div>
 
