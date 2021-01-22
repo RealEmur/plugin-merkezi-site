@@ -4,21 +4,21 @@ $yorumsor=$db->prepare("SELECT * FROM yorumlar WHERE yorum_durum = 1 ORDER BY yo
 $yorumsor->execute();
 if($yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC))
   {?>
-    <section id="testimonials" class="testimonials section-bg">
-      <div class="container">
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container">
         <div class="section-title">
-          <span>Yorumlar</span>
-          <h2>Yorumlar</h2>
-          <p>Siz değerli müşterilerimizden gelen bazı yorumlar</p>
+            <span>Yorumlar</span>
+            <h2>Yorumlar</h2>
+            <p>Siz değerli müşterilerimizden gelen bazı yorumlar</p>
         </div>
         <div class="owl-carousel testimonials-carousel">
-          <div class="testimonial-item">
-            <p>
-              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-              <?php echo $yorumcek['yorum_aciklama'];?>
-              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-            </p>
-            <img src="
+            <div class="testimonial-item">
+                <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    <?php echo $yorumcek['yorum_aciklama'];?>
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+                <img src="
             <?php 
             if(empty($yorumcek['yorum_resim']))
             {
@@ -40,8 +40,8 @@ if($yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC))
             else
               echo $yorumcek['yorum_resim'];
             ?>" class="testimonial-img" alt="">
-            <h3>
-            <?php 
+                <h3>
+                    <?php 
               if(empty($yorumcek['yorum_yazici']))
               {
                 if(is_numeric($yorumcek['yorum_steamdec']))
@@ -62,30 +62,30 @@ if($yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC))
               else
                 echo $yorumcek['yorum_yazici'];
               ?>
-            </h3>
-            <h4><?php echo $yorumcek['yorum_rol'];?></h4>
-          </div>
-          <?php
+                </h3>
+                <h4><?php echo $yorumcek['yorum_rol'];?></h4>
+            </div>
+            <?php
           while($yorumcek=$yorumsor->fetch(PDO::FETCH_ASSOC))
             {?>
 
-              <div class="testimonial-item">
+            <div class="testimonial-item">
                 <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  <?php echo $yorumcek['yorum_aciklama']; ?>
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    <?php echo $yorumcek['yorum_aciklama']; ?>
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="<?php echo $yorumcek['yorum_resim']; ?>" class="testimonial-img" alt="">
                 <h3><?php echo $yorumcek['yorum_yazici']; ?></h3>
                 <h4><?php echo $yorumcek['yorum_rol']; ?></h4>
-              </div>
+            </div>
             <?php }?>
-          </div>
+        </div>
 
-          <!--<div align="center">
+        <!--<div align="center">
             <a href="eklentiler.php"><button type="submit" class="col-md-3 btn btn-danger"><b>Yorum Yap</b></button></a>
           </div>-->
-        </div>
-      </section> 
-      <?php } 
+    </div>
+</section>
+<?php } 
       ?>

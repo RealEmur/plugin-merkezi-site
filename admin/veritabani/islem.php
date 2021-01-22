@@ -31,6 +31,15 @@ if(isset($_POST['genelayarkaydet']))
 	else
 		Header("Location:../production/genel-ayarlar?durum=basarisiz");
 }
+else if(isset($_POST['discordayarkaydet']))
+{
+	$ayarkaydet=$db->prepare("UPDATE ayarlar SET ayar_discord_webhook=:webhook, ayar_discord_etiket=:etiket");
+	$guncelle=$ayarkaydet->execute(array('webhook' => $_POST['ayar_discord_webhook'], 'etiket' => $_POST['ayar_discord_etiket']));
+	if($guncelle)
+		Header("Location:../production/discord-ayarlar?durum=basarili");
+	else
+		Header("Location:../production/discord-ayarlar?durum=basarisiz");
+}
 else if(isset($_POST['footerayarkaydet']))
 {
 	$ayarkaydet=$db->prepare("UPDATE footer SET
@@ -167,10 +176,10 @@ else if(isset($_POST['eklentigonder']))
 	if(isset($_POST['eklentiid']))
 	{
 		sendToDiscord($_POST['eklentiid']);
-		Header("Location:../production/eklentiler.php?durum=basarili");
+		//Header("Location:../production/eklentiler.php?durum=basarili");
 	}
 	else{
-		Header("Location:../production/eklentiler.php?durum=basarisiz");
+		//Header("Location:../production/eklentiler.php?durum=basarisiz");
 	}
 }
 else if(isset($_POST['yenikullaniciekle']))

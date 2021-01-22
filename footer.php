@@ -9,29 +9,29 @@ $footercek=$footersor->fetch(PDO::FETCH_ASSOC);
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
-  <div class="footer-top">
+    <div class="footer-top">
 
-    <div class="container">
+        <div class="container">
 
-      <div class="row  justify-content-center">
-        <div class="col-lg-6">
-          <img style="margin: 3%;width: 30%;"src="<?php echo $footercek['footer_resim']?>">
-          <h3><?php echo $footercek['footer_baslik']?></h3>
-          <p><?php echo $footercek['footer_aciklama']?></p>
+            <div class="row  justify-content-center">
+                <div class="col-lg-6">
+                    <img style="margin: 3%;width: 30%;" src="<?php echo $footercek['footer_resim']?>">
+                    <h3><?php echo $footercek['footer_baslik']?></h3>
+                    <p><?php echo $footercek['footer_aciklama']?></p>
+                </div>
+
+            </div>
         </div>
+    </div>
 
-      </div>
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>2021</span></strong>. Bütün hakları saklıdır.
+        </div>
+        <div class="credits">
+            Designed by <b>pluginmerkezi.com</b>
+        </div>
     </div>
-  </div>
-
-  <div class="container footer-bottom clearfix">
-    <div class="copyright">
-      &copy; Copyright <strong><span>2021</span></strong>. Bütün hakları saklıdır.
-    </div>
-    <div class="credits">
-      Designed by <b>pluginmerkezi.com</b>
-    </div>
-  </div>
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
@@ -48,4 +48,5 @@ $footercek=$footersor->fetch(PDO::FETCH_ASSOC);
 <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
+
 </html>
