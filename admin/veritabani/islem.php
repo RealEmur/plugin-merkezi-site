@@ -123,7 +123,8 @@ else if(isset($_POST['yenieklentiekle']))
 		eklenti_aciklama=:aciklama,
 		eklenti_fiyat=:fiyat,
 		eklenti_sira=:sira,
-		eklenti_durum=:durum
+		eklenti_durum=:durum,
+		eklenti_author=:author
 		");
 	$insert=$kaydet->execute(array(
 		'isim' => $_POST['eklenti_isim'],
@@ -131,8 +132,8 @@ else if(isset($_POST['yenieklentiekle']))
 		'aciklama' => $_POST['eklenti_aciklama'],
 		'fiyat' => $_POST['eklenti_fiyat'],
 		'sira' => $_POST['eklenti_sira'],
-		'durum' => $_POST['eklenti_durum']
-
+		'durum' => $_POST['eklenti_durum'],
+		'author' => $_SESSION['pmadmin_kullaniciadi']
 	));
 	if($insert)
 		Header("Location:../production/eklentiler.php?durum=basarili");

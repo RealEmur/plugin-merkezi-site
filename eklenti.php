@@ -16,7 +16,8 @@ $gelenid = $_GET['eklentiid'];
       {?>
         <div align="center" class="container">
             <h1 style="color: #264653;"><b><?php echo $eklenticek['eklenti_isim']?></b></h1>
-            <p style="margin-bottom: 4%;">Tarih: <?php echo $eklenticek['eklenti_tarih'];?></p>
+            <p>Tarih: <?php echo $eklenticek['eklenti_tarih'];?></p>
+            <p style="margin-bottom: 4%;">Yapımcı: <?php echo $eklenticek['eklenti_author'];?></p>
             <img style="margin-bottom: 4%; border: 1px transparent; background: #edf6f9; padding: 10px; box-shadow: 0px 0px 15px #888888; text-align: center; height:400px;"
                 src="<?php echo $eklenticek['eklenti_resim']?>">
             <p style="text-align: center;"><br><?php echo $eklenticek['eklenti_aciklama']?></small></p>
