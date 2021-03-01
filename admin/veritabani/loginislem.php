@@ -9,7 +9,9 @@ if(isset($_POST['login']))
 	$admin_sifre = $_POST['sifre'];
 	if($admin_kadi && $admin_sifre)
 	{
-		$sorgula = $db->query("SELECT * FROM adminler WHERE admin_kullanici='$admin_kadi' AND admin_sifre='$admin_sifre'");
+		$sorgula = $db->prepare("SELECT * FROM adminler WHERE admin_kullanici=:kadi AND admin_sifre=:sifre");
+		$sorgula->execute(array('kadi' => $admin_kadi,
+								'sifre'=> $admin_sifre));
 		$kontrol = $sorgula->rowCount();
 
 		if($kontrol>0)
